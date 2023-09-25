@@ -1,0 +1,8 @@
+{
+  "appId": "com.pp.clientes",
+  "appName": "clientes",
+  "bundledWebRuntime": false,
+  "npmClient": "yarn",
+  "webDir": "build",
+  "cordova": {}
+}

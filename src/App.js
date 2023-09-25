@@ -1,26 +1,33 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import {BrowserRouter as Router} from 'react-router-dom'
+import {ToastProvider} from 'react-toast-notifications'
+// import {FirestoreProvider} from "@react-firebase/firestore"
+// import firebase from './firebase'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import GlobalStyles from "./global-styles"
+
+import {EventContextProvider} from './EventContext'
+import Main from './pages/main'
+// import './App.css'
+
+
+const App = ()=>
+{
+    // const data = await firebase.firestore().collection('clients').get()
+    // console.log(data)
+
+    return (
+        <Router>
+            <GlobalStyles></GlobalStyles>
+            <ToastProvider>
+                {/* <FirestoreProvider {...config} firebase={firebase}> */}
+                    <EventContextProvider>
+                        <Main></Main>
+                    </EventContextProvider>
+                {/* </FirestoreProvider> */}
+            </ToastProvider>
+        </Router>
+    )
 }
 
 export default App;
